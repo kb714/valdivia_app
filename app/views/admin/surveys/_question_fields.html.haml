@@ -1,0 +1,12 @@
+.nested-fields
+  = f.input :name
+  = f.input :description
+  = f.input_field :_destroy, as: :hidden
+  = link_to_remove_association "Quitar", f, class: 'btn btn-primary btn-xs'
+  .answers
+    = f.simple_fields_for :answers do |builder|
+      = render 'answer_fields', f: builder
+  = link_to_add_association 'Agregar respuesta', f, :answers, class: 'btn btn-primary', |
+    data: {                                                                             |
+    association_insertion_node: '.answers',                                             |
+    association_insertion_method: :append }                                             |

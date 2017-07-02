@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ValdiviaApp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    #layout-top
+      %nav.navbar
+        Fomento productivo Valdivia
+    #layout-lateral
+      %ul.menu
+        %li
+          %a{href: admin_path}
+            %i.fa.fa-home
+        %li
+          %a{href: admin_surveys_path}
+            %i.fa.fa-file-text
+    #layout-content
+      .content
+        = yield

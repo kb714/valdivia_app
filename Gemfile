@@ -52,8 +52,23 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rb-fsevent'
 
 # authentication
 gem 'devise'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'cocoon'
+
+# frontend
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+
+# front validation
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+gem 'client_side_validations-simple_form', github: 'DavyJonesLocker/client_side_validations-simple_form'
+
+# haml
+gem 'haml-rails'
+
+# icons
+gem 'font-awesome-sass'

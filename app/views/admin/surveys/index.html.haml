@@ -1,0 +1,16 @@
+%a.btn.btn-primary{:href => new_admin_survey_path} Nuevo
+%table.table
+  %thead
+    %tr
+      %th Nombre
+      %th Descripción
+      %th Fecha
+  %tbody
+    - @survey.each do |item|
+      %tr
+        %td #{item.name}
+        %td #{item.description}
+        %td #{item.expiration}
+        %td= link_to('Editar', edit_admin_survey_path(item))
+
+

@@ -1,0 +1,10 @@
+= f.error_notification
+= f.input :name
+= f.input :description
+= f.input :expiration
+.questions
+  = f.simple_fields_for :questions, validate: true do |builder|
+    = render 'question_fields', f: builder
+= f.submit class: 'btn btn-primary'
+= link_to_add_association 'Agregar pregunta', f, :questions, class: 'btn btn-primary',
+  data: { association_insertion_node: '.questions', association_insertion_method: :append }
