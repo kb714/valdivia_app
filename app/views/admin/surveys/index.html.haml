@@ -1,16 +1,35 @@
-%a.btn.btn-primary{:href => new_admin_survey_path} Nuevo
-%table.table
-  %thead
-    %tr
-      %th Nombre
-      %th Descripción
-      %th Fecha
-  %tbody
-    - @survey.each do |item|
+.body-title
+  %h1
+    Formularios
+  %small Lista de formularios creados en el sistema
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => new_admin_survey_path} Nuevo formulario
+.body-content
+  - if flash[:notice]
+    .alert.alert-info.alert-dismissible.fade.show
+      %button.close{data:{dismiss: 'alert'}}
+        %span{aria: {hidden: 'true'}} &times;
+      = flash[:notice]
+  %table.table
+    %thead
       %tr
-        %td #{item.name}
-        %td #{item.description}
-        %td #{item.expiration}
-        %td= link_to('Editar', edit_admin_survey_path(item))
+        %th Nombre
+        %th Descripción
+        %th Fecha
+        %th Acción
+    %tbody
+      - if @survey.empty?
+        %tr
+          %td.text-center{colspan: 4}
+            %small Sin contenido ingresado
+      - @survey.each do |item|
+        %tr
+          %td #{item.name}
+          %td #{item.description}
+          %td #{item.expiration}
+          %td
+            = link_to('Editar', edit_admin_survey_path(item))
+            = link_to('Eliminar', admin_survey_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
 
 

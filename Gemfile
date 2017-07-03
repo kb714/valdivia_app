@@ -62,6 +62,7 @@ gem 'cocoon'
 
 # frontend
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'rails-i18n', '~> 5.0.0'
 
 # front validation
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
@@ -72,3 +73,7 @@ gem 'haml-rails'
 
 # icons
 gem 'font-awesome-sass'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end

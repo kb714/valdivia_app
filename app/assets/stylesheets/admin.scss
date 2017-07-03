@@ -1,9 +1,11 @@
-$layout-top-height: 40px;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+$layout-top-height: 38px;
 $layout-lateral-width: 80px;
-$layout-lateral-menu-bg: #5c005c;
+$layout-top-bg: #263238;
+$layout-lateral-menu-bg: #37474F;
 
 body {
-  background: $layout-lateral-menu-bg;
+  font-family: 'Roboto', sans-serif;
 }
 
 #layout-top, #layout-lateral, #layout-content {
@@ -11,7 +13,7 @@ body {
 }
 
 #layout-top {
-  background: $layout-lateral-menu-bg;
+  background: $layout-top-bg;
   height: $layout-top-height;
   padding-left: $layout-lateral-width;
   color: #FFF;
@@ -19,6 +21,17 @@ body {
   right: 0;
   top: 0;
   width: 100%;
+  .nav-title {
+    padding-top: 8px;
+    font-weight: 300;
+  }
+  .btn {
+    color: #FFFFFF;
+    background: #009688;
+    &:hover {
+      background: darken(#009688, 5);
+    }
+  }
 }
 
 #layout-lateral {
@@ -27,7 +40,6 @@ body {
   background: $layout-lateral-menu-bg;
   bottom: 0;
   left: 0;
-  padding-top: 10px;
   .menu {
     list-style: none;
     padding: 0;
@@ -48,16 +60,35 @@ body {
 }
 
 #layout-content {
-  background: #F4F4F4;
-  border-top: 3px solid #ff8c00;
-  border-left: 3px solid #ff8c00;
-  border-radius: 10px 0 0 0;
+  background: #FFFFFF;
   top: $layout-top-height;
   left: $layout-lateral-width;
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  .content {
-
+  .table {
+    tbody {
+      td {
+        vertical-align: middle;
+      }
+    }
+  }
+  .body-title {
+    background: #F4F4F4;
+    padding: 60px 30px;
+    border-bottom: 1px solid #ECEFF1;
+    h1 {
+      font-weight: 300;
+    }
+  }
+  .body-toolbar {
+    padding: 0 30px;
+    background: #F4F4F4;
+  }
+  .body-content {
+    padding-top: 15px;
+    &.padding {
+      padding: 30px;
+    }
   }
 }

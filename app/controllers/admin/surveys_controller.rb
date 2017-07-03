@@ -1,6 +1,6 @@
 module Admin
   class SurveysController < ApplicationController
-  before_action :set_survey, only: [:edit, :update]
+  before_action :set_survey, only: [:edit, :update, :destroy]
 
   def index
     @survey = Survey.all
@@ -30,6 +30,11 @@ module Admin
     else
       render :edit
     end
+  end
+
+  def destroy
+    @survey.destroy
+    redirect_to admin_surveys_path, notice: 'Acción completada con éxito'
   end
 
   private

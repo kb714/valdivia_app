@@ -1,4 +1,4 @@
-.nested-fields
-  = f.input :content
-  = f.input_field :_destroy, as: :hidden
-  = link_to_remove_association "quitar respuesta", f, class: 'btn btn-primary btn-xs'
+%tr.nested-fields
+  %td= f.input_field :_destroy, as: :hidden
+  %td= link_to_remove_association 'Quitar respuesta', f, class: 'btn btn-danger btn-sm'
+  %td= f.input :content

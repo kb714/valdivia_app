@@ -1,3 +1,10 @@
-nuevo formulario
-= simple_form_for [:admin, @survey], validate: true do |f|
-  = render 'form', f: f
+.body-title
+  %h1
+    Nuevo
+  %small Creando nuevo formulario en el sistema
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_surveys_path} Volver
+.body-content.padding
+  = simple_form_for [:admin, @survey], validate: true do |f|
+    = render 'form', f: f

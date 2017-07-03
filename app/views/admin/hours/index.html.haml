@@ -1,0 +1,29 @@
+.body-title
+  %h1
+    Horas
+  %small Lista de horas solicitadas y agendadas
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_path} Volver
+.body-content
+  %table.table
+    %thead
+      %tr
+        %th Nombre
+        %th Asunto
+        %th Teléfono
+        %th Email
+        %th Acción
+    %tbody
+      - if @hours.blank?
+        %tr
+          %td.text-center{colspan: 5}
+            %small No existen horas agendadas o pendientes
+      - @hours.each do |item|
+        %tr
+          %td= item.name
+          %td= item.subject
+          %td= item.phone
+          %td= item.email
+          %td
+            = link_to('Ver', admin_hour_path(item))

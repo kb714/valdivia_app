@@ -2,27 +2,14 @@
 %html
   %head
     %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-    %title ValdiviaApp
+    %title Fomento Productivo - Valdivia
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     #layout-top
-      .container-fluid
-        .row
-          .col-6
-            .nav-title
-              Fomento productivo Valdivia
-          .col-6.text-right
-            %a.btn{href: ''} Cerrar Sesión
+      = render 'admin/partial/layout_top'
     #layout-lateral
-      %ul.menu
-        %li
-          %a{href: admin_path}
-            %i.fa.fa-home
-        %li
-          %a{href: admin_surveys_path}
-            %i.fa.fa-file-text
+      = render 'admin/partial/layout_lateral'
     #layout-content
-      .content
-        = yield
+      = yield

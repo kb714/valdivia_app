@@ -1,2 +1,13 @@
-%h1 Admin
-= link_to('forms', admin_surveys_path)
+.body-title
+  %h1
+    Administración
+  %small Bienvenido a su panel de administración
+.body-toolbar
+  Lista de módulos instalados
+.body-content
+  .card
+    .card-block
+      = link_to('Agenda de horas', admin_hours_path)
+  .card
+    .card-block
+      = link_to('Formularios', admin_surveys_path)
