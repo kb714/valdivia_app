@@ -1,15 +1,20 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
     %title ValdiviaApp
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     #layout-top
-      %nav.navbar
-        Fomento productivo Valdivia
+      .container-fluid
+        .row
+          .col-6
+            .nav-title
+              Fomento productivo Valdivia
+          .col-6.text-right
+            %a.btn{href: ''} Cerrar Sesión
     #layout-lateral
       %ul.menu
         %li

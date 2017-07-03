@@ -2,6 +2,10 @@ $layout-top-height: 40px;
 $layout-lateral-width: 80px;
 $layout-lateral-menu-bg: #5c005c;
 
+body {
+  background: $layout-lateral-menu-bg;
+}
+
 #layout-top, #layout-lateral, #layout-content {
   position: fixed;
 }
@@ -14,14 +18,16 @@ $layout-lateral-menu-bg: #5c005c;
   left: 0;
   right: 0;
   top: 0;
+  width: 100%;
 }
 
 #layout-lateral {
   top: $layout-top-height;
   width: $layout-lateral-width;
+  background: $layout-lateral-menu-bg;
   bottom: 0;
   left: 0;
-  background: $layout-lateral-menu-bg;
+  padding-top: 10px;
   .menu {
     list-style: none;
     padding: 0;
@@ -42,14 +48,15 @@ $layout-lateral-menu-bg: #5c005c;
 }
 
 #layout-content {
-  border-top: 5px solid #ff8c00;
-  border-left: 5px solid #ff8c00;
+  background: #F4F4F4;
+  border-top: 3px solid #ff8c00;
+  border-left: 3px solid #ff8c00;
+  border-radius: 10px 0 0 0;
   top: $layout-top-height;
   left: $layout-lateral-width;
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  padding: 15px;
   .content {
 
   }
