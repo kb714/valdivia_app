@@ -1,0 +1,20 @@
+#home-wrapper {
+  $top-height: 30px;
+  .top {
+    background: #263238;
+    position: fixed;
+    color: #FFFFFF;
+    height: $top-height;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+  .content {
+    position: fixed;
+    top: $top-height;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    background: #009688;
+  }
+}
