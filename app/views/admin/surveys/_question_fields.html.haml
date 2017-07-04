@@ -1,7 +1,7 @@
 .nested-fields
   = f.input :name
   = f.input :description
-  = f.input :type, selected: ['Selección'], collection: {'Selección' => 0,'Adjuntar archivo' => 1, 'Ingreso de texto' => 2}
+  = f.input :question_type, collection: {'Selección' => 0,'Adjuntar archivo' => 1, 'Ingreso de texto' => 2}, include_blank: false
   %table.table
     %tbody.answers
       = f.simple_fields_for :answers do |builder|

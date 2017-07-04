@@ -6,6 +6,11 @@
   Acciones:
   %a.btn.btn-primary{:href => admin_path} Volver
 .body-content
+  - if flash[:notice]
+    .alert.alert-info.alert-dismissible.fade.show
+      %button.close{data:{dismiss: 'alert'}}
+        %span{aria: {hidden: 'true'}} &times;
+      = flash[:notice]
   %table.table
     %thead
       %tr
@@ -27,3 +32,4 @@
           %td= item.email
           %td
             = link_to('Ver', admin_hour_path(item))
+            = link_to('Eliminar', admin_hour_path(item), method: :delete, data: {confirm: '¿Seguro desea eliminar este elemento?'})

@@ -1,0 +1,25 @@
+.body-title
+  %h1
+    Hora
+  %small Revisando solicitud de #{@hour.name}
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_hours_path} Volver
+.body-content
+  %table.table
+    %tbody
+      %tr
+        %td Nombre:
+        %td #{@hour.name}
+      %tr
+        %td Teléfono:
+        %td #{@hour.phone}
+      %tr
+        %td Correo electrónico:
+        %td #{@hour.email}
+      %tr
+        %td Asunto:
+        %td #{@hour.subject}
+      %tr
+        %td Mensaje:
+        %td #{@hour.description}

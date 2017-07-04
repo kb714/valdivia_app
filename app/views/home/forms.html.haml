@@ -1,0 +1,11 @@
+.inner-title
+  %h3 Formularios
+.card
+  .card-block
+    .list-group
+      - @surveys.each do |item|
+        %a.list-group-item.list-group-item-action.flex-column.align-items-start{href: home_form_path(id: item.id, slug: item.name.parameterize)}
+          .d-flex.w-100.justify-content-between
+            %h5.mb-1 #{item.name}
+            %small Valido: #{item.expiration}
+          %p.mb-1 #{item.description}

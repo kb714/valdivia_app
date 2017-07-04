@@ -33,6 +33,7 @@ module Admin
   end
 
   def destroy
+    @survey = Survey.find_by(id: params[:id])
     @survey.destroy
     redirect_to admin_surveys_path, notice: 'Acción completada con éxito'
   end
@@ -48,6 +49,7 @@ module Admin
         :questions_attributes => [
             :id,
             :name,
+            :question_type,
             :description,
             :_destroy,
             :answers_attributes => [:id, :content, :_destroy]

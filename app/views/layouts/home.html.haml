@@ -9,10 +9,48 @@
   %body
     #home-wrapper
       .top
-        .container-fluid
+        .container
           .row
             .col-6
               .title
                 Ilustre Municipalidad de valdivia
+            .col-6
+              .menu.text-right
+                Menu secundario
+
       .content
-        = yield
+        .banner
+          .inner
+            .container
+              .row
+                .col-12
+                  %h1 Fomento Productivo
+                  %br
+                  [/ LOGO \]
+          .block
+            .block-inter
+              .a
+              .b
+              .c
+              .d
+        .navigation
+          %ul.nav.justify-content-center
+            %li.nav-item
+              %a.nav-link{href: home_path} Inicio
+            %li.nav-item
+              %a.nav-link{href: home_hours_path} Toma de horas
+            %li.nav-item
+              %a.nav-link{href: home_forms_path} Formularios
+        .body
+          .container
+            .row
+              .col-12
+                = yield
+      .footer
+        .container
+          .row
+            .col-12
+              .text-center
+                Fomento productivo
+                %br
+                Ilustre Municipalidad de Valdivia

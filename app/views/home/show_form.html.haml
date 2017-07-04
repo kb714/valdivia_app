@@ -1,0 +1,26 @@
+.inner-title
+  %small Válido hasta: #{@survey.expiration}
+.card
+  .card-block
+    %h3 #{@survey.name}
+    %small #{@survey.description}
+    %hr
+    = form_tag store_home_form_path, method: :post, id: 'survey_form' do
+      - @survey.questions.each do |q|
+        %h5 #{q.name}
+        %small #{q.description}
+        %br
+        - if q.question_type.to_i == 0
+          - q.answers.each do |a|
+            .form-group
+              = content_tag(:label) do
+                = radio_button_tag 'answer_[id]', a.id
+                = a.content
+        - if q.question_type.to_i == 1
+          .form-group
+            = file_field_tag("survey[answer_#{q.id}]", class: 'form-control')
+        - if q.question_type.to_i == 2
+          .form-group
+            = text_field_tag("survey[answer_#{q.id}]", params[:survey]["answer_#{q.id}"], class: 'form-control')
+      %br
+      = submit_tag('Enviar formulario', class: 'btn btn-primary')

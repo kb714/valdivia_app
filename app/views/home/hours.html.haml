@@ -1,0 +1,19 @@
+.inner-title
+  %h3 Toma de horas
+.card
+  .card-block
+    - if flash[:notice]
+      .alert.alert-info.alert-dismissible.fade.show
+        %button.close{data:{dismiss: 'alert'}}
+          %span{aria: {hidden: 'true'}} &times;
+        = flash[:notice]
+      .text-center
+        = link_to('Gracias', home_hours_path, class: 'btn btn-primary')
+    - else
+      = simple_form_for @hours, url: store_home_hours_path, validate: true do |f|
+        = f.input :name
+        = f.input :phone
+        = f.input :email
+        = f.input :subject
+        = f.input :description
+        = f.submit 'Solicitar hora', class: 'btn btn-primary'
