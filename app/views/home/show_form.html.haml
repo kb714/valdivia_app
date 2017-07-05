@@ -14,13 +14,13 @@
           - q.answers.each do |a|
             .form-group
               = content_tag(:label) do
-                = radio_button_tag 'answer_[id]', a.id
+                = radio_button_tag 'answer_[multiple]', a.id
                 = a.content
         - if q.question_type.to_i == 1
           .form-group
             = file_field_tag("survey[answer_#{q.id}]", class: 'form-control')
         - if q.question_type.to_i == 2
           .form-group
-            = text_field_tag("survey[answer_#{q.id}]", params[:survey]["answer_#{q.id}"], class: 'form-control')
+            = text_field_tag("survey[answer_#{q.id}]", if params[:survey] then params[:survey]["answer_#{q.id}"] end, class: 'form-control')
       %br
       = submit_tag('Enviar formulario', class: 'btn btn-primary')
