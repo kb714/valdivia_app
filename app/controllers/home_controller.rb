@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
-  layout 'home'
+  layout :resolve_layout
 
   def index
+
+  end
+
+  def landing
 
   end
 
@@ -35,6 +39,15 @@ class HomeController < ApplicationController
 
   def hours_params
     params.require(:hour).permit(:name, :phone, :email, :subject, :description)
+  end
+
+  def resolve_layout
+    case action_name
+      when 'landing'
+        'landing'
+      else
+        'home'
+    end
   end
 
 end
