@@ -79,3 +79,5 @@ source 'https://rails-assets.org' do
 end
 
 gem 'webpacker'
+
+gem 'unicorn'

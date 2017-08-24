@@ -5,6 +5,7 @@ import { Col, Row } from 'antd';
 import Parallax from 'react-springy-parallax';
 import polygon from './polygon.png';
 import bannerA from './bannerA.png';
+import bannerB from './bannerB.png';
 import feathers from './feathers.png';
 import DDDB from './ddd-b.png';
 
@@ -22,7 +23,7 @@ class LandingComponent extends React.Component
                         <a href="/">Toma de horas</a>
                         <a href="/">Contacto</a>
                     </div>
-                    <Parallax.Layer  offset={0} style={{ background: '#FF9800 url('+ bannerA +') bottom right repeat' }}/>
+                    <Parallax.Layer  offset={0} style={{ backgroundImage: 'url('+ bannerA +')', backgroundSize: '100%, 100%', backgroundColor: '#feb00e', backgroundPosition: 'top center' }}/>
                     <Parallax.Layer  offset={0.9}>
                         <div className="block">
                             <div className="block-inter">
@@ -33,7 +34,7 @@ class LandingComponent extends React.Component
                             </div>
                         </div>
                     </Parallax.Layer>
-                    <Parallax.Layer  offset={1} style={{ background: '#E64A19' }}/>
+                    <Parallax.Layer  offset={1} style={{ backgroundColor: '#feb00e', backgroundImage: 'url('+ bannerB +')', backgroundSize: '100%, auto', backgroundPosition: 'center center' }}/>
 
                     <Parallax.Layer  offset={2.9}>
                         <div className="block">
@@ -80,13 +81,7 @@ class LandingComponent extends React.Component
                             <Row type="flex" justify="space-between" align="middle" className="container">
                                 <Col span={12} />
                                 <Col span={12} className="text-center">
-                                    <h1 className="white">Que tus ideas se transformen en realidad</h1>
-                                    <div className="white" style={{ fontSize: '18px' }}>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Ab, accusamus consequuntur culpa dicta, doloremque ea eius eveniet excepturi
-                                        laborum modi mollitia natus, nemo officia optio praesentium sapiente sed
-                                        sunt veritatis?
-                                    </div>
+                                    -
                                 </Col>
                             </Row>
                         </div>
