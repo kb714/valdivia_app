@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def landing
-
+    @hours = Hour.new
   end
 
   def hours

@@ -1,1 +1,54 @@
-= javascript_pack_tag 'landing'
+#wrapper
+  .header-logo.text-center
+    %img{:src => asset_path('logo.png')}
+
+  .grid
+    .container-fluid
+      .row
+        .col-12.col-md-6
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        .col-12.col-md-6
+          LOGO o ELEMENTO SIN ANIMACIÓN
+  .grid.yellow
+    .container-fluid
+      .row
+        .col-6
+          TEST
+        .col-6
+          .rellax.text-xs-right{"data-rellax-speed" => 3, "data-rellax-percentage" => 1.1}
+            LOGO o ELEMENTO CON ANIMACIÓN
+  .grid.purple
+    .container-fluid
+      .row
+        .col-12.text-center
+          texto plano centrado
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+  .grid.footer
+    .container-fluid
+      .row
+        .col-12
+          .inner-title
+            %h5 Toma de horas
+          - if flash[:notice]
+            .alert.alert-info.alert-dismissible.fade.show
+              %button.close{data:{dismiss: 'alert'}}
+                %span{aria: {hidden: 'true'}} &times;
+              = flash[:notice]
+            .text-center
+              = link_to('Gracias', home_hours_path, class: 'btn btn-primary')
+          - else
+            = simple_form_for @hours, url: store_home_hours_path, validate: true do |f|
+              = f.input :name
+              = f.input :phone
+              = f.input :email
+              = f.input :description
+              = f.submit 'Solicitar hora', class: 'btn btn-secondary'
