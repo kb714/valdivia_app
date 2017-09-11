@@ -2,6 +2,11 @@ body {
   background: #FF9800 url(image_path('bg-app.png')) repeat;
   background-size: 250px 250px;
 }
+
+.container-fluid, .row {
+  height: 100%;
+}
+
 #wrapper {
   padding: 100px 0 0 0;
   position: absolute;
@@ -29,8 +34,6 @@ body {
   height: 100%;
   background: rgba(0, 128, 0, 0.8);
   padding: 200px;
-  padding-top: 100px;
-  padding-bottom: 100px;
   color: #fff;
   &.yellow {
     background: rgba(255, 235, 59, 0.8);

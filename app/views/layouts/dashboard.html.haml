@@ -7,10 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    #session-wrapper
-      .container
-        .row.justify-content-md-center
-          .col-12.col-md-6
-            .card
-              .card-block
-                = yield
+    #layout-top
+      = render 'admin/partial/layout_top'
+    #layout-lateral
+      = render 'admin/partial/layout_lateral'
+    #layout-content
+      = yield

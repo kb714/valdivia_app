@@ -1,5 +1,5 @@
 module Admin
-  class SurveysController < ApplicationController
+  class SurveysController < DashboardController
   before_action :set_survey, only: [:edit, :update, :destroy]
 
   def index

@@ -4,7 +4,7 @@
 
   .grid
     .container-fluid
-      .row
+      .row.align-items-center
         .col-12.col-md-6
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -15,15 +15,15 @@
           LOGO o ELEMENTO SIN ANIMACIÓN
   .grid.yellow
     .container-fluid
-      .row
+      .row.align-items-center
         .col-6
           TEST
-        .col-6
-          .rellax.text-xs-right{"data-rellax-speed" => 3, "data-rellax-percentage" => 1.1}
+        .col-6.text-xs-right
+          .rellax{"data-rellax-speed" => 3, "data-rellax-percentage" => 0.5}
             LOGO o ELEMENTO CON ANIMACIÓN
   .grid.purple
     .container-fluid
-      .row
+      .row.align-items-center
         .col-12.text-center
           texto plano centrado
           %p
@@ -34,7 +34,7 @@
             culpa qui officia deserunt mollit anim id est laborum.
   .grid.footer
     .container-fluid
-      .row
+      .row.align-items-center
         .col-12
           .inner-title
             %h5 Toma de horas
