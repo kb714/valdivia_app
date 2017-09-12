@@ -8,12 +8,22 @@
 
 $PADDING_WRAPPER: 15px;
 
-#session-wrapper{
+#session-wrapper {
   position: absolute;
   background: rgba(255, 255, 255, 0.8);
   top: $PADDING_WRAPPER;
   left: $PADDING_WRAPPER;
   right: $PADDING_WRAPPER;
   bottom: $PADDING_WRAPPER;
+  padding-top: 150px;
+}
+
+#forms-wrapper {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding-top: 150px;
 }

@@ -45,6 +45,12 @@ class HomeController < ApplicationController
     case action_name
       when 'landing'
         'landing'
+      when 'forms'
+        'forms'
+      when 'show_form'
+        'forms'
+      when 'store_form'
+        'forms'
       else
         'home'
     end
