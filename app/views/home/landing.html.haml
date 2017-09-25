@@ -1,7 +1,21 @@
 #wrapper
   .header-logo.text-center
+    .menu-container
+      %a#menu-toggle{:href => '#'}
+        %i.fa.fa-bars
     %img{:src => asset_path('logo.png')}
-
+    .navigation-fixed-container
+      Despliegue de navegación por iconos
+  #carousel-1.carousel.slide{:data => {:ride => 'carousel'}}
+    .carousel-inner
+      .carousel-item.text-center.active
+        %img{:src => asset_path('slider/slider-1.png')}
+      .carousel-item.text-center
+        %img{:src => asset_path('slider/slider-2.png')}
+    %a.carousel-control-prev{:href => '#carousel-1', :data => {:slide => 'prev'}}
+      %span.carousel-control-prev-icon
+    %a.carousel-control-next{:href => '#carousel-1', :data => {:slide => 'next'}}
+      %span.carousel-control-next-icon
   .grid
     .container-fluid
       .row.align-items-center

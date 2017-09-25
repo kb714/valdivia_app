@@ -81,3 +81,5 @@ end
 gem 'webpacker'
 
 gem 'unicorn'
+
+gem 'jquery-rails'

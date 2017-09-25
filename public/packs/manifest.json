@@ -1,21 +1,4 @@
 {
   "application.js": "/packs/application.js",
-  "bannerA.js": "/packs/bannerA.js",
-  "bannerA.png": "/packs/bannerA.png",
-  "bannerB.js": "/packs/bannerB.js",
-  "bannerB.png": "/packs/bannerB.png",
-  "block-1.gif": "/packs/block-1.gif",
-  "block-1.js": "/packs/block-1.js",
-  "ddd-b.js": "/packs/ddd-b.js",
-  "ddd-b.png": "/packs/ddd-b.png",
-  "ddd.js": "/packs/ddd.js",
-  "ddd.png": "/packs/ddd.png",
-  "feathers.js": "/packs/feathers.js",
-  "feathers.png": "/packs/feathers.png",
-  "hello_react.js": "/packs/hello_react.js",
-  "landing.js": "/packs/landing.js",
-  "leaves.js": "/packs/leaves.js",
-  "leaves.png": "/packs/leaves.png",
-  "polygon.js": "/packs/polygon.js",
-  "polygon.png": "/packs/polygon.png"
+  "hello_react.js": "/packs/hello_react.js"
 }
