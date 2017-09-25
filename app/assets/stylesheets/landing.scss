@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700');
+
 body {
   background: #FF9800 url(image_path('bg-app.png')) repeat;
   background-size: 250px 250px;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .container-fluid, .row {
@@ -40,13 +43,28 @@ body {
     color: #000;
   }
   &.purple {
-    background: rgba(156, 39, 176, 0.81);
+    background: rgba(156, 39, 176, 0.8);
     color: #fff;
   }
   &.footer {
     background: #37474F;
     color: #fff;
     height: auto;
+  }
+  &.footer-white {
+    height: auto;
+    padding: 50px;
+    font-family: 'PT Sans', sans-serif;
+    background: #f5f5f5;
+    color: #212121;
+    .text-of-footer {
+      padding-top: 60px;
+      padding-bottom: 90px;
+    }
+    img {
+      width: 100%;
+      max-width: 250px;
+    }
   }
 }
 

@@ -32,23 +32,30 @@
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-  .grid.footer
+  .grid.footer-white
     .container-fluid
+      .row.align-items-center.text-of-footer
+        .col-12.col-md-4
+          .text-center
+            Ilustre Municipalidad de Valdivia.
+            Independencia #455.
+            %br
+            %a{:href => 'http://www.munivaldivia.cl', :target => '_blank'} www.munivaldivia.cl.
+        .col-12.col-md-4
+          .text-center
+            Fomento Productivo, Departamento de desarrollo Económico.
+            %br
+            +56 63 2 239519
+        .col-12.col-md-4
+          .text-center
+            Punto de Atención al Emprendimiento
+            +56 63 2 288772
+            %br
+            muniemprende@gmail.com
       .row.align-items-center
-        .col-12
-          .inner-title
-            %h5 Toma de horas
-          - if flash[:notice]
-            .alert.alert-info.alert-dismissible.fade.show
-              %button.close{data:{dismiss: 'alert'}}
-                %span{aria: {hidden: 'true'}} &times;
-              = flash[:notice]
-            .text-center
-              = link_to('Gracias', home_hours_path, class: 'btn btn-primary')
-          - else
-            = simple_form_for @hours, url: store_home_hours_path, validate: true do |f|
-              = f.input :name
-              = f.input :phone
-              = f.input :email
-              = f.input :description
-              = f.submit 'Solicitar hora', class: 'btn btn-secondary'
+        .col-12.col-md-6
+          .text-center
+            %img{:src => asset_path('footer/logo-municipalidad.png')}
+        .col-12.col-md-6
+          .text-center
+            %img{:src => asset_path('footer/logo-club.png')}
