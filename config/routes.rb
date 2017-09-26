@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     resources :hours
     resources :surveys
   end
+
+  resources 'contacts', only: [:new, :create]
 end

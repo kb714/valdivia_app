@@ -40,9 +40,11 @@ body {
   .navigation-fixed-container {
     position: fixed;
     display: none;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(183, 28, 28, 0.95);
+    color: #FFFFFF;
     width: 100%;
-    height: 100%;
+    padding: 30px;
+    text-align: left;
   }
   img {
     max-height: 100%;
@@ -80,7 +82,19 @@ body {
     }
     img {
       width: 100%;
-      max-width: 250px;
+      max-width: 100px;
+    }
+  }
+  &.contact-grid {
+    padding: 0;
+    position: relative;
+    z-index: 0;
+    .contact-form {
+      background: #FFFFFF;
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+      padding: 50px;
     }
   }
 }

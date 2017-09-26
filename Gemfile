@@ -83,3 +83,5 @@ gem 'webpacker'
 gem 'unicorn'
 
 gem 'jquery-rails'
+
+gem 'mail_form'
