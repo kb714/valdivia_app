@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911061152) do
+ActiveRecord::Schema.define(version: 20170927093600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170911061152) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "navigations", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "target"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "background_color"
     t.text "content_right"
@@ -42,6 +51,9 @@ ActiveRecord::Schema.define(version: 20170911061152) do
     t.integer "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "banner"
+    t.json "background_image"
+    t.string "page_type"
   end
 
   create_table "questions", force: :cascade do |t|

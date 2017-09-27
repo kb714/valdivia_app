@@ -85,3 +85,5 @@ gem 'unicorn'
 gem 'jquery-rails'
 
 gem 'mail_form'
+
+gem 'carrierwave', '~> 1.0'

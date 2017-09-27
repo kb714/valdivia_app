@@ -1,10 +1,10 @@
 .body-title
   %h1
-    Páginas
-  %small Lista de páginas o sliders creados en el sistema
+    Navegación
+  %small Menu de navegación principal
 .body-toolbar
   Acciones:
-  %a.btn.btn-primary{:href => new_admin_page_path} Nueva página
+  %a.btn.btn-primary{:href => new_admin_survey_path} Nuevo menu
 .body-content
   - if flash[:notice]
     .alert.alert-info.alert-dismissible.fade.show
@@ -15,21 +15,21 @@
     %thead
       %tr
         %th Nombre
-        %th Descripción
-        %th Fecha
+        %th URL
+        %th Peso
         %th Acción
     %tbody
-      - if @pages.empty?
+      - if @navigations.empty?
         %tr
           %td.text-center{colspan: 4}
             %small Sin contenido ingresado
-      - @pages.each do |item|
+      - @navigations.each do |item|
         %tr
           %td #{item.name}
-          %td #{item.description}
-          %td #{item.expiration}
+          %td #{item.url}
+          %td #{item.weight}
           %td
-            = link_to('Editar', edit_admin_survey_path(item))
-            = link_to('Eliminar', admin_survey_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
+            = link_to('Editar', edit_admin_navigation_path(item))
+            = link_to('Eliminar', admin_navigation_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
 
 

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get 'navigations/index'
+  end
+
+  namespace :admin do
     get 'users/index'
   end
 
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
     resources :pages
     resources :hours
     resources :surveys
+    resources :navigations
   end
 
   resources 'contacts', only: [:new, :create]
