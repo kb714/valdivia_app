@@ -49,15 +49,16 @@
   .grid.contact-grid
     %iframe{:src => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.7048753097397!2d-73.24892246880533!3d-39.81361132629477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93941668651e1037!2sMunicipalidad+de+Valdivia!5e0!3m2!1ses!2scl!4v1506360014916', :width => '100%', :height => '100%', :frameborder => '0', :style => 'border:0', :allowfullscreen => true}
     .contact-form
-      %h1 CONTACTO
-      = simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f|
-        = f.input :name, :required => true
-        = f.input :email, :required => true
-        = f.input :message, :as => :text, :required => true
-        .hidden
-          = f.input :nickname, :hint => 'Leave this field blank!'
-          %br
-          = f.button :submit, 'Send message', :class=> 'btn btn-primary'
+      .text-center
+        %a#contact-toggle{:href => '#'}
+          %i.fa.fa-angle-double-down
+      .contact-form-fields
+        %h5 Hablemos ...
+        = simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f|
+          = f.input :nombre, :required => true
+          = f.input :email, :required => true
+          = f.input :mensaje, :as => :text, :required => true
+          = f.button :submit, 'Enviar', :class=> 'btn btn-danger btn-block'
   .grid.footer-white
     .container-fluid
       .row.align-items-center.text-of-footer

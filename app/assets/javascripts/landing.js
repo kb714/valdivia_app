@@ -5,3 +5,11 @@ $('#menu-toggle').click(function(e)
         $('.navigation-fixed-container').fadeToggle();
     }
 );
+
+$('#contact-toggle').click(function(e)
+    {
+        e.preventDefault();
+        $('#contact-toggle').find('i').toggleClass('flip');
+        $('.contact-form-fields').fadeToggle();
+    }
+);
