@@ -14,6 +14,7 @@
 //= require tether
 //= require bootstrap
 //= require cocoon
+//= require summernote
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

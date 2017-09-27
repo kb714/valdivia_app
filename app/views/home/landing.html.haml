@@ -1,11 +1,15 @@
 #wrapper
   .header-logo.text-center
-    .menu-container
-      %a#menu-toggle{:href => '#'}
-        %i.fa.fa-bars
+    - if @navigation.exists?
+      .menu-container
+        %a#menu-toggle{:href => '#'}
+          %i.fa.fa-bars
     %img{:src => asset_path('logo.png')}
-    .navigation-fixed-container
-      %h3 Navegación:
+    - if @navigation.exists?
+      .navigation-fixed-container.text-center
+        - @navigation.each do |item|
+          %a{href: item.url, target: item.target == '#' ? '' : item.target } #{item.name}
+
   #carousel-1.carousel.slide{:data => {:ride => 'carousel'}}
     .carousel-inner
       .carousel-item.text-center.active

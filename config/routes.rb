@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get 'images/create'
+  end
+
+  namespace :admin do
+    get 'images/destroy'
+  end
+
+  namespace :admin do
     get 'navigations/index'
   end
 
@@ -28,6 +36,7 @@ Rails.application.routes.draw do
     resources :hours
     resources :surveys
     resources :navigations
+    resources :images, only: [:create, :destroy]
   end
 
   resources 'contacts', only: [:new, :create]

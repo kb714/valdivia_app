@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   def landing
     @hours = Hour.new
     @contact = Contact.new
+    @navigation = Navigation.order(weight: :asc).all
   end
 
   def hours

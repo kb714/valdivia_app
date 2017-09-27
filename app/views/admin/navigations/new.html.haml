@@ -1,0 +1,13 @@
+.body-title
+  %h1
+    Nuevo
+  %small Creando nuevo menu de navegación
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_navigations_path} Volver
+.body-content.padding
+  = simple_form_for [:admin, @navigation], validate: true do |f|
+    .row
+      .col-6
+        = render 'form', f: f
+        = f.submit 'Crear', :class => 'btn btn-primary'

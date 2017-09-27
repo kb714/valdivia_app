@@ -1,0 +1,13 @@
+.body-title
+  %h1
+    Nuevo
+  %small Creando nueva página
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_pages_path} Volver
+.body-content.padding
+  = simple_form_for [:admin, @page], validate: true do |f|
+    .row
+      .col-6
+        = render 'form', f: f
+        = f.submit 'Crear', :class => 'btn btn-primary'

@@ -1,0 +1,13 @@
+.body-title
+  %h1
+    = @navigation.name
+  %small Editando elemento de menu
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_navigations_path} Volver
+.body-content
+  .card
+    .card-block
+      = simple_form_for [:admin, @navigation], validate: true do |f|
+        = render 'form', f: f
+        = f.submit 'Actualizar', :class => 'btn btn-primary'

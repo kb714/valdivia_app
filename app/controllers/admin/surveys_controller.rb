@@ -39,6 +39,7 @@ module Admin
   end
 
   private
+
   def set_survey
     @survey = Survey.find_by(id: params[:id])
   end
