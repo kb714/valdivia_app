@@ -33,11 +33,11 @@
           - item.sliders.each_with_index do |slider, index|
             - if index == 0
               .carousel-item.text-center.active
-                %a{href: item.url}
+                %a{href: slider.url}
                   %img{:src => slider.image.url}
             - else
               .carousel-item.text-center
-                %a{href: item.url}
+                %a{href: slider.url}
                   %img{:src => slider.image.url}
         %a.carousel-control-prev{:href => '#' + item.name, :data => {:slide => 'prev'}}
           %span.carousel-control-prev-icon
