@@ -15,8 +15,8 @@
     %thead
       %tr
         %th Nombre
-        %th Descripción
-        %th Fecha
+        %th Tipo de tarjeta
+        %th Peso
         %th Acción
     %tbody
       - if @pages.empty?
@@ -26,10 +26,10 @@
       - @pages.each do |item|
         %tr
           %td #{item.name}
-          %td #{item.description}
-          %td #{item.expiration}
+          %td #{item.page_type}
+          %td #{item.weight}
           %td
-            = link_to('Editar', edit_admin_survey_path(item))
-            = link_to('Eliminar', admin_survey_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
+            = link_to('Editar', edit_admin_page_path(item))
+            = link_to('Eliminar', admin_page_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
 
 

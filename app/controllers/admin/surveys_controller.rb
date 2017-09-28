@@ -46,7 +46,7 @@ module Admin
 
   def survey_params
     params.require(:survey).permit(
-        :name, :description, :expiration,
+        :name, :description, :expiration, :banner,
         :questions_attributes => [
             :id,
             :name,

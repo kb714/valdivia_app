@@ -2,15 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $('[data-provider="summernote"]').each ->
-    $(this).summernote({
-        height: 300,
-        width: "90%",
-        minHeight: null,
-        maxHeight: null,
-        dialogsInBody: true
-    })
-$ ->
   upload_episode_image = (that, file) ->
     data = new FormData
     data.append 'image[image]', file
@@ -36,6 +27,26 @@ $ ->
       processData: false
 
   ready = ->
+    $ ->
+      $('[data-provider="summernote"]').each ->
+        $(this).summernote({
+          height: 300,
+          width: "90%",
+          toolbar: [
+            ['style', ['style']]
+            ['font', ['bold', 'italic', 'underline', 'clear']]
+            ['fontname', ['fontname']]
+            ['color', ['color']]
+            ['para', ['ul', 'ol', 'paragraph']]
+            ['height', ['height']]
+            ['table', ['table']]
+            ['insert', ['link', 'picture', 'hr']]
+            ['view', ['fullscreen', 'codeview']]
+          ],
+          minHeight: null,
+          maxHeight: null,
+          dialogsInBody: true
+        })
     $('.summernote-with-links').each ->
       $(this).summernote
         height: 450

@@ -1,0 +1,8 @@
+.nested-fields
+  .remove
+    = f.input_field :_destroy, as: :hidden
+    = link_to_remove_association 'Remover slider', f, class: 'btn btn-danger btn-xs'
+  = f.input :url
+  = f.input :target, :collection => {'Misma página' => '#', 'Nueva página' => '_blank'}, :include_blank => false
+  %img{src: f.object.image.url, width: '250px'}
+  = f.input :image

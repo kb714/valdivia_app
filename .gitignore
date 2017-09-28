@@ -19,3 +19,5 @@
 
 .byebug_history
 /node_modules
+/public/packs
+/node_modules

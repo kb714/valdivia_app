@@ -11,3 +11,4 @@
       .col-6
         = render 'form', f: f
         = f.submit 'Crear', :class => 'btn btn-primary'
+        = link_to_add_association 'Añadir slider', f, :sliders, class: 'btn btn-primary', data: { association_insertion_node: '.sliders', association_insertion_method: :append }

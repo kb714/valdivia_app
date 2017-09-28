@@ -1,5 +1,13 @@
+= f.input :name
+= f.input :weight
+= f.input :page_type, collection: {'Tarjeta' => 'page', 'Slider de imágenes' => 'slider'}, include_blank: false
 = f.input :background_color
 = f.input :content_right, as: :summernote
 = f.input :animation_right
-= f.input :content_left
+= f.input :content_left, as: :summernote
 = f.input :animation_left
+%hr
+%h4 Sliders
+.sliders
+  = f.simple_fields_for :sliders do |builder|
+    = render 'slider_fields', f: builder

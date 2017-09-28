@@ -78,7 +78,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
-gem 'webpacker'
+#gem 'webpacker'
 
 gem 'unicorn'
 
@@ -89,3 +89,5 @@ gem 'mail_form'
 gem 'carrierwave', '~> 1.0'
 
 gem 'summernote-rails'
+
+gem 'mini_magick'

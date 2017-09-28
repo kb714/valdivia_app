@@ -10,47 +10,39 @@
         - @navigation.each do |item|
           %a{href: item.url, target: item.target == '#' ? '' : item.target } #{item.name}
 
-  #carousel-1.carousel.slide{:data => {:ride => 'carousel'}}
-    .carousel-inner
-      .carousel-item.text-center.active
-        %img{:src => asset_path('slider/slider-1.png')}
-      .carousel-item.text-center
-        %img{:src => asset_path('slider/slider-2.png')}
-    %a.carousel-control-prev{:href => '#carousel-1', :data => {:slide => 'prev'}}
-      %span.carousel-control-prev-icon
-    %a.carousel-control-next{:href => '#carousel-1', :data => {:slide => 'next'}}
-      %span.carousel-control-next-icon
-  .grid
-    .container-fluid
-      .row.align-items-center
-        .col-12.col-md-6
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        .col-12.col-md-6
-          LOGO o ELEMENTO SIN ANIMACIÓN
-  .grid.yellow
-    .container-fluid
-      .row.align-items-center
-        .col-6
-          TEST
-        .col-6.text-xs-right
-          .rellax{"data-rellax-speed" => 3, "data-rellax-percentage" => 0.5}
-            LOGO o ELEMENTO CON ANIMACIÓN
-  .grid.purple
-    .container-fluid
-      .row.align-items-center
-        .col-12.text-center
-          texto plano centrado
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-  .grid.contact-grid
+  - @pages.each do |item|
+    - if item.page_type == 'page'
+      .grid{style: 'background-color: ' + item.background_color + ';', id: item.name}
+        .container-fluid
+          .row.align-items-center
+            .col-12.col-md-6
+              - if item.animation_left
+                .rellax{'data-rellax-speed' => 3, 'data-rellax-percentage' => 0.2}
+                  = raw item.content_left
+              - else
+                = raw item.content_left
+            .col-12.col-md-6
+              - if item.animation_right
+                .rellax{'data-rellax-speed' => 3, 'data-rellax-percentage' => 0.2}
+                  = raw item.content_right
+              - else
+                = raw item.content_right
+    - else
+      .carousel.slide{:data => {:ride => 'carousel'}, id: item.name}
+        .carousel-inner
+          - item.sliders.each_with_index do |slider, index|
+            - if index == 0
+              .carousel-item.text-center.active
+                %img{:src => slider.image.url}
+            - else
+              .carousel-item.text-center
+                %img{:src => slider.image.url}
+        %a.carousel-control-prev{:href => '#' + item.name, :data => {:slide => 'prev'}}
+          %span.carousel-control-prev-icon
+        %a.carousel-control-next{:href => '#' + item.name, :data => {:slide => 'next'}}
+          %span.carousel-control-next-icon
+
+  .grid.contact-grid#contacto
     %iframe{:src => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.7048753097397!2d-73.24892246880533!3d-39.81361132629477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93941668651e1037!2sMunicipalidad+de+Valdivia!5e0!3m2!1ses!2scl!4v1506360014916', :width => '100%', :height => '100%', :frameborder => '0', :style => 'border:0', :allowfullscreen => true}
     .contact-form
       .text-center
@@ -63,7 +55,7 @@
           = f.input :email, :required => true
           = f.input :mensaje, :as => :text, :required => true
           = f.button :submit, 'Enviar', :class=> 'btn btn-danger btn-block'
-  .grid.footer-white
+  .grid.footer-white#footer
     .container-fluid
       .row.align-items-center.text-of-footer
         .col-12.col-md-4

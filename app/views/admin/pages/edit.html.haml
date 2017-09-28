@@ -1,0 +1,14 @@
+.body-title
+  %h1
+    = @page.name
+  %small Editando elemento de página
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_pages_path} Volver
+.body-content
+  .card
+    .card-block
+      = simple_form_for [:admin, @page], validate: true do |f|
+        = render 'form', f: f
+        = f.submit 'Actualizar', :class => 'btn btn-primary'
+        = link_to_add_association 'Añadir slider', f, :sliders, class: 'btn btn-primary', data: { association_insertion_node: '.sliders', association_insertion_method: :append }

@@ -45,7 +45,17 @@ module Admin
     end
 
     def page_params
-      params.require(:page).permit(:background_color, :content_right, :content_left)
+      params.require(:page).permit(
+          :name,
+          :weight,
+          :page_type,
+          :background_color,
+          :content_right,
+          :content_left,
+          :animation_right,
+          :animation_left,
+          :sliders_attributes => [:id, :url, :target, :image, :_destroy]
+      )
     end
 
   end
