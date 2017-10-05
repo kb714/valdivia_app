@@ -43,10 +43,10 @@ body {
     background: rgba(183, 28, 28, 0.95);
     color: #FFFFFF;
     width: 100%;
-    padding: 20px;
     text-align: left;
     a {
-      padding: 8px;
+      display: inline-block;
+      padding: 12px 8px;
       color: #FFFFFF;
       text-transform: uppercase;
       font-weight: 600;
@@ -55,11 +55,10 @@ body {
       -ms-transition: all linear 0.2s;
       -o-transition: all linear 0.2s;
       transition: all linear 0.2s;
-      border-bottom: 2px solid transparent;
       &:hover {
         text-decoration: none;
-        border-bottom: 2px solid #FFFFFF;
-        color: darken(#FFFFFF, 10);
+        color: #B71C1C;
+        background: #FFFFFF;
       }
     }
   }
