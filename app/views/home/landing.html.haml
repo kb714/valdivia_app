@@ -45,7 +45,7 @@
           %span.carousel-control-next-icon
 
   .grid.contact-grid#contacto
-    %iframe{:src => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.7048753097397!2d-73.24892246880533!3d-39.81361132629477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93941668651e1037!2sMunicipalidad+de+Valdivia!5e0!3m2!1ses!2scl!4v1506360014916', :width => '100%', :height => '100%', :frameborder => '0', :style => 'border:0', :allowfullscreen => true}
+
     .contact-form
       .text-center
         %a#contact-toggle{:href => '#'}
@@ -60,27 +60,26 @@
   .grid.footer-white#footer
     .container-fluid
       .row.align-items-center.text-of-footer
-        .col-12.col-md-4
+        .col-12.col-md-3
+          .text-center
+            %img{:src => asset_path('footer/logo-municipalidad.png')}
+        .col-12.col-md-3
           .text-center
             Ilustre Municipalidad de Valdivia.
             Independencia #455.
             %br
-            %a{:href => 'http://www.munivaldivia.cl', :target => '_blank'} www.munivaldivia.cl.
-        .col-12.col-md-4
+            %a{:href => 'http://www.munivaldivia.cl', :target => '_blank'} www.munivaldivia.cl
+        .col-12.col-md-3
           .text-center
             Fomento Productivo, Departamento de desarrollo Económico.
             %br
             +56 63 2 239519
-        .col-12.col-md-4
+        .col-12.col-md-3
           .text-center
             Punto de Atención al Emprendimiento
-            +56 63 2 288772
             %br
-            muniemprende@gmail.com
+            +56 63 2 288772 muniemprende@gmail.com
       .row.align-items-center
-        .col-12.col-md-12
-          .text-center
-            %img{:src => asset_path('footer/logo-municipalidad.png')}
         -#.col-12.col-md-6
         -#  .text-center
         -#    %img{:src => asset_path('footer/logo-club.png')}
