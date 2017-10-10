@@ -49,10 +49,14 @@ body {
         display: block;
         color: #FFF;
         padding: 5px;
-        font-size: 28px;
+        font-size: 26px;
         &:hover {
           text-decoration: none;
           background: darken($layout-lateral-menu-bg, 5);
+        }
+        span {
+          font-size: 14px;
+          display: block;
         }
       }
     }

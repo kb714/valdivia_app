@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :pages
+    resource :profiles, only: [:edit] do
+      collection do
+        patch 'update_password'
+      end
+    end
     resources :hours
     resources :surveys
     resources :navigations

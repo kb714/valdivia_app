@@ -1,0 +1,14 @@
+.body-title
+  %h1
+    Perfil
+  %small Edición de contraseña
+.body-content
+  .container-fluid
+    .row
+      .col-12
+        = simple_form_for([:admin, @user], :url => { :action => "update_password" } ) do |f|
+          = f.input :password, :autocomplete => "off"
+          = f.input :password_confirmation
+          %br
+          .action_container
+            %button.btn.btn-primary{type: :submit} Actualizar contraseña
