@@ -1,17 +1,23 @@
-.inner-title
-  %small Válido hasta: #{@survey.expiration}
-.card
+#forms.card
   .text-center
     %img{src: @survey.banner.url, width: '100%'}
   .card-block
-    %h3 #{@survey.name}
-    %small #{@survey.description}
+    .text-center
+      %h3 #{@survey.name}
+      %small #{@survey.description}
+      %hr
+      %small
+        Válido desde:
+        %b #{@survey.start_at.strftime("%d/%m/%Y %H:%M")}
+        hasta:
+        %b #{@survey.expiration.strftime("%d/%m/%Y %H:%M")}
     %hr
     = form_tag store_home_form_path, method: :post, id: 'survey_form' do
       - @survey.questions.each do |q|
+        .text-center
         %h5 #{q.name}
         %small #{q.description}
-        %br
+        %p
         - if q.question_type.to_i == 0
           - q.answers.each do |a|
             .form-group
@@ -24,5 +30,6 @@
         - if q.question_type.to_i == 2
           .form-group
             = text_field_tag("survey[#{q.name}]", if params[:survey] then params[:survey]["#{q.name}"] end, class: 'form-control')
-      %br
-      = submit_tag('Enviar formulario', class: 'btn btn-primary')
+        %hr
+      .text-center
+        %button.btn.btn-block.btn-primary{type: :submit} Enviar Formulario

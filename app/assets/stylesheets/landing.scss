@@ -150,3 +150,12 @@ body {
     width: 100%;
   }
 }
+
+#forms {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  input {
+    border: 1px solid #000000;
+    border-radius: 15px;
+  }
+}
