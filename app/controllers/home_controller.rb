@@ -35,6 +35,8 @@ class HomeController < ApplicationController
 
   def store_form
     @survey = Survey.find_by(id: params[:id])
+    puts "Guardado: #{params[:survey].to_json}"
+    @survey.data_stores.create(surveys: params[:survey])
     render :show_form
   end
 
