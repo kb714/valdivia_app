@@ -1,2 +1,11 @@
-class Admin::AnswersController < ApplicationController
+module Admin
+  class AnswersController < DashboardController
+    def index
+
+    end
+
+    def show
+
+    end
+  end
 end
