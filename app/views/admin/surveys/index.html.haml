@@ -15,8 +15,9 @@
     %thead
       %tr
         %th Nombre
-        %th Descripción
-        %th Fecha
+        %th URL
+        %th Fecha inicio
+        %th Fecha caducidad
         %th Acción
     %tbody
       - if @survey.empty?
@@ -26,8 +27,11 @@
       - @survey.each do |item|
         %tr
           %td #{item.name}
-          %td #{item.description}
-          %td #{item.expiration}
+          %td
+            %a{href: home_form_path(id: item.id, slug: item.name.parameterize), target: "_blank"}
+              #{request.base_url + home_form_path(id: item.id, slug: item.name.parameterize)}
+          %td #{item.start_at.strftime("%d/%m/%Y %H:%M")}
+          %td #{item.expiration.strftime("%d/%m/%Y %H:%M")}
           %td
             = link_to('Editar', edit_admin_survey_path(item))
             = link_to('Eliminar', admin_survey_path(item), method: :delete, data: {confirm: '¿Está seguro?'})

@@ -26,6 +26,7 @@ module Admin
 
   def update
     if @survey.update(survey_params)
+      puts "SON: #{params[:survey][:questions_attributes][:name].to_json}"
       redirect_to edit_admin_survey_path(@survey), notice: 'Formulario actualizado.'
     else
       render :edit

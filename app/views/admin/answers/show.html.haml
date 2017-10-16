@@ -1,0 +1,18 @@
+.body-title
+  %h1
+    Respuestas
+  %small Formulario
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_answers_path} Volver
+.body-content
+  %table.table
+    %thead
+      %tr
+        - @all_data.each do |item, key|
+          %th #{item}
+    %tbody
+      - @data.each_with_index do |a, index|
+        %tr
+          - @all_data.each do |item, key|
+            %td #{key[index]}

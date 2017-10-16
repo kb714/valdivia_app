@@ -51,9 +51,11 @@
         %a#contact-toggle{:href => '#'}
           %i.fa.fa-angle-double-down
       .contact-form-fields
-        %h5 Hablemos ...
+        %h5 Cuéntanos tu idea ...
         = simple_form_for @contact, :html => {:class => 'form-horizontal' }, :validate => true do |f|
           = f.input :nombre, :required => true
+          = f.input :ciudad, :required => true
+          = f.input :telefono, :required => true
           = f.input :email, :required => true
           = f.input :mensaje, :as => :text, :required => true
           = f.button :submit, 'Enviar', :class=> 'btn btn-danger btn-block'

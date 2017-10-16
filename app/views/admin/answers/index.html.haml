@@ -1,1 +1,36 @@
-Despliegue de respuestas / datos guardados, definir la generación
+.body-title
+  %h1
+    Formularios existentes
+  %small Manejo de datos
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_path} Volver
+.body-content
+  - if flash[:notice]
+    .alert.alert-info.alert-dismissible.fade.show
+      %button.close{data:{dismiss: 'alert'}}
+        %span{aria: {hidden: 'true'}} &times;
+      = flash[:notice]
+  %table.table
+    %thead
+      %tr
+        %th Formulario
+        %th URL
+        %th Fecha inicio
+        %th Fecha caducidad
+        %th Acción
+    %tbody
+      - if @surveys.blank?
+        %tr
+          %td.text-center{colspan: 5}
+            %small No existen horas agendadas o pendientes
+      - @surveys.each do |item|
+        %tr
+          %td= item.name
+          %td
+            %a{href: home_form_path(id: item.id, slug: item.name.parameterize), target: "_blank"}
+              #{request.base_url + home_form_path(id: item.id, slug: item.name.parameterize)}
+          %td= item.start_at.strftime("%d/%m/%Y %H:%M")
+          %td= item.expiration.strftime("%d/%m/%Y %H:%M")
+          %td
+            = link_to('Ver respuestas', admin_answer_path(item))
