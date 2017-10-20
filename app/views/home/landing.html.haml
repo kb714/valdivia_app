@@ -52,7 +52,7 @@
           %i.fa.fa-angle-double-down
       .contact-form-fields
         %h5 Cuéntanos tu idea ...
-        = simple_form_for @contact, :html => {:class => 'form-horizontal' }, :validate => true do |f|
+        = simple_form_for @contact, url: contact_path, :html => {:class => 'form-horizontal' }, :validate => true do |f|
           = f.input :nombre, :required => true
           = f.input :ciudad, :required => true
           = f.input :telefono, :required => true

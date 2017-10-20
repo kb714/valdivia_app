@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Recibimos un nuevo correo desde la web muniemprende.cl del correo: #{@data[:email]}
+    %p
+      %b los datos son:
+      %br
+      Nombre #{@data[:nombre]}
+      %br
+      Ciudad #{@data[:ciudad]}
+      %br
+      Teléfono #{@data[:telefono]}
+      %br
+      Mensaje #{@data[:mensaje]}

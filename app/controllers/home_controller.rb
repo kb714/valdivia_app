@@ -12,19 +12,6 @@ class HomeController < ApplicationController
     @pages = Page.order(weight: :asc).all
   end
 
-  def hours
-    @hours = Hour.new
-  end
-
-  def store_hours
-    @hours = Hour.new(hours_params)
-    if @hours.save
-      redirect_to home_hours_path, notice: 'Su solicitud fue recepcionada, por favor, espere nuestra respuesta'
-    else
-      render :hours
-    end
-  end
-
   def forms
     @surveys = Survey.all
   end
@@ -40,10 +27,20 @@ class HomeController < ApplicationController
     render :show_form
   end
 
+  def contact
+    puts 'contact'
+    ContactMailer.contact_email(contact_params).deliver_now
+    redirect_to root_path
+  end
+
   private
 
   def hours_params
     params.require(:hour).permit(:name, :phone, :email, :subject, :description)
+  end
+
+  def contact_params
+    params.require(:contact).permit(:nombre, :ciudad, :telefono, :email, :mensaje)
   end
 
   def resolve_layout
