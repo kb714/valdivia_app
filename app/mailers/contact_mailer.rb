@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
 
   def contact_email(data)
     @data = data
-    mail(to: 'alexis@acvp.cl', subject: 'Contacto desde web')
+    mail(to: 'muniemprende@gmail.com', subject: 'Contacto desde web')
   end
 end

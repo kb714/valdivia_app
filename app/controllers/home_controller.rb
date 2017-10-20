@@ -30,7 +30,7 @@ class HomeController < ApplicationController
   def contact
     puts 'contact'
     ContactMailer.contact_email(contact_params).deliver_now
-    redirect_to root_path
+    redirect_to root_path, notice: 'Su mensaje fue recibido con éxito'
   end
 
   private
