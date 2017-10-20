@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-  default from: 'notification@muniemprende.cl'
+  default from: 'notification@mailgun.muniemprende.cl'
 
   def contact_email(data)
     @data = data
