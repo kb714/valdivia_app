@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010140448) do
+ActiveRecord::Schema.define(version: 20171027045645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(version: 20171010140448) do
     t.integer "page_id"
   end
 
+  create_table "survey_files", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_survey_files_on_survey_id"
+  end
+
   create_table "surveys", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -118,4 +126,5 @@ ActiveRecord::Schema.define(version: 20171010140448) do
   end
 
   add_foreign_key "data_stores", "surveys"
+  add_foreign_key "survey_files", "surveys"
 end

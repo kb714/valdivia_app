@@ -22,8 +22,19 @@ class HomeController < ApplicationController
 
   def store_form
     @survey = Survey.find_by(id: params[:id])
-    puts "Guardado: #{params[:survey].to_json}"
-    @survey.data_stores.create(surveys: params[:survey])
+    data = params[:survey]
+    data.each do |key, item|
+      case item
+        when Rack::Test::UploadedFile, ActionDispatch::Http::UploadedFile
+          file = SurveyFile.create(survey_id: params[:id], image: item)
+          data[key] = request.base_url + file.image.url
+        else
+          puts item
+      end
+    end
+    #puts "Guardado: #{params[:survey].to_json}"
+    @survey.data_stores.create(surveys: data)
+    flash[:form_alert] = "Formulario recibido con éxito"
     render :show_form
   end
 

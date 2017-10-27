@@ -12,7 +12,10 @@
         hasta:
         %b #{@survey.expiration.strftime("%d/%m/%Y %H:%M")}
     %hr
-    = form_tag store_home_form_path, method: :post, id: 'survey_form' do
+    - if flash[:form_alert]
+      .alert.alert-success
+        = flash[:form_alert]
+    = form_tag store_home_form_path, method: :post, id: 'survey_form', multipart: true do
       - @survey.questions.each do |q|
         .text-center
         %h5 #{q.name}
