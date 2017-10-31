@@ -33,7 +33,9 @@
           - item.surveys.each do |td|
             %td
               - if is_uri?(td[1])
-                %img{src: td[1], "style": {"max-width": "250px"}}
+                = link_to('Abrir imagen en una nueva página', td[1], target: "_blank")
+                %br
+                %img{src: td[1], "style": "max-width: 250px"}
               - else
                 #{td[1]}
           %td
