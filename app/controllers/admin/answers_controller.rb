@@ -14,5 +14,12 @@ module Admin
       end
       puts @all_data
     end
+
+    def destroy
+      @data = DataStore.find_by(id: params[:id])
+      survey_id = @data.survey_id
+      @data.destroy
+      redirect_to admin_answer_path(survey_id), notice: 'Acción completada con éxito'
+    end
   end
 end

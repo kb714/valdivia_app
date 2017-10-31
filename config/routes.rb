@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#landing'
-  get 'home', to: 'home#index'
+  get 'contacto', to: 'home#get_contact'
   post 'home/contacto', to: 'home#contact', as: 'contact'
   get 'f', to: 'home#forms', as: 'home_forms'
   get 'f/:id&:slug', to: 'home#show_form', as: 'home_form'

@@ -1,0 +1,57 @@
+#wrapper
+  .header-logo.text-center
+    - if @navigation.exists?
+      .menu-container
+        %a#menu-toggle{:href => '#'}
+          %i.fa.fa-bars
+    %img{:src => asset_path('logo.png')}
+    - if @navigation.exists?
+      .navigation-fixed-container.text-center
+        - @navigation.each do |item|
+          %a{href: item.url, target: item.target == '#' ? '' : item.target } #{item.name}
+
+  .grid.contact-grid#contacto
+    .contact-form
+      .text-center
+        %a#contact-toggle{:href => '#'}
+          %i.fa.fa-angle-double-down
+      .contact-form-fields
+        %h5 Cuéntanos tu idea ...
+        - if flash[:notice]
+          .alert.alert-success.alert-dismissible.fade.show
+            %button.close{data: {dismiss: :alert}}
+              %span &times;
+            = flash[:notice]
+        = simple_form_for @contact, url: contact_path, :html => {:class => 'form-horizontal' }, :validate => true do |f|
+          = f.input :nombre, :required => true
+          = f.input :ciudad, :required => true
+          = f.input :telefono, :required => true
+          = f.input :email, :required => true
+          = f.input :mensaje, :as => :text, :required => true
+          = f.button :submit, 'Enviar', :class=> 'btn btn-danger btn-block'
+  .grid.footer-white#footer
+    .container-fluid
+      .row.align-items-center.text-of-footer
+        .col-12.col-md-3
+          .text-center
+            %img{:src => asset_path('footer/logo-white-rgba.png')}
+        .col-12.col-md-3
+          .text-center
+            Ilustre Municipalidad de Valdivia.
+            Independencia #455.
+            %br
+            %a{:href => 'http://www.munivaldivia.cl', :target => '_blank'} www.munivaldivia.cl
+        .col-12.col-md-3
+          .text-center
+            Fomento Productivo, Departamento de desarrollo Económico.
+            %br
+            +56 63 2 239519
+        .col-12.col-md-3
+          .text-center
+            Punto de Atención al Emprendimiento
+            %br
+            +56 63 2 288772 muniemprende@gmail.com
+      .row.align-items-center
+        -#.col-12.col-md-6
+        -#  .text-center
+        -#    %img{:src => asset_path('footer/logo-club.png')}

@@ -6,13 +6,36 @@
   Acciones:
   %a.btn.btn-primary{:href => admin_answers_path} Volver
 .body-content
-  %table.table
-    %thead
-      %tr
-        - @all_data.each do |item, key|
-          %th #{item}
-    %tbody
-      - @data.each_with_index do |a, index|
+  - if flash[:notice]
+    .alert.alert-info.alert-dismissible.fade.show
+      %button.close{data:{dismiss: 'alert'}}
+        %span{aria: {hidden: 'true'}} &times;
+      = flash[:notice]
+  -#%table.table
+  -#  %thead
+  -#    %tr
+  -#      - @all_data.each do |item, key|
+  -#        %th #{item}
+  -#  %tbody
+  -#    - @data.each_with_index do |a, index|
+  -#      %tr
+  -#        - @all_data.each do |item, key|
+  -#          %td #{key[index]}
+  - @data.each do |item|
+    %table.table
+      %thead
         %tr
-          - @all_data.each do |item, key|
-            %td #{key[index]}
+          - item.surveys.each do |th|
+            %th #{th[0]}
+          %th Acción
+      %tbody
+        %tr
+          - item.surveys.each do |td|
+            %td
+              - if is_uri?(td[1])
+                %img{src: td[1], "style": {"max-width": "250px"}}
+              - else
+                #{td[1]}
+          %td
+            = link_to('Eliminar', admin_answer_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
+    %hr

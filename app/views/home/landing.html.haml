@@ -44,26 +44,25 @@
         %a.carousel-control-next{:href => '#' + item.name, :data => {:slide => 'next'}}
           %span.carousel-control-next-icon
 
-  .grid.contact-grid#contacto
-
-    .contact-form
-      .text-center
-        %a#contact-toggle{:href => '#'}
-          %i.fa.fa-angle-double-down
-      .contact-form-fields
-        %h5 Cuéntanos tu idea ...
-        - if flash[:notice]
-          .alert.alert-success.alert-dismissible.fade.show
-            %button.close{data: {dismiss: :alert}}
-              %span &times;
-            = flash[:notice]
-        = simple_form_for @contact, url: contact_path, :html => {:class => 'form-horizontal' }, :validate => true do |f|
-          = f.input :nombre, :required => true
-          = f.input :ciudad, :required => true
-          = f.input :telefono, :required => true
-          = f.input :email, :required => true
-          = f.input :mensaje, :as => :text, :required => true
-          = f.button :submit, 'Enviar', :class=> 'btn btn-danger btn-block'
+  -#.grid.contact-grid#contacto
+  -#  .contact-form
+  -#    .text-center
+  -#      %a#contact-toggle{:href => '#'}
+  -#        %i.fa.fa-angle-double-down
+  -#    .contact-form-fields
+  -#      %h5 Cuéntanos tu idea ...
+  -#      - if flash[:notice]
+  -#        .alert.alert-success.alert-dismissible.fade.show
+  -#          %button.close{data: {dismiss: :alert}}
+  -#            %span &times;
+  -#          = flash[:notice]
+  -#      = simple_form_for @contact, url: contact_path, :html => {:class => 'form-horizontal' }, :validate => true do |f|
+  -#        = f.input :nombre, :required => true
+  -#        = f.input :ciudad, :required => true
+  -#        = f.input :telefono, :required => true
+  -#        = f.input :email, :required => true
+  -#        = f.input :mensaje, :as => :text, :required => true
+  -#        = f.button :submit, 'Enviar', :class=> 'btn btn-danger btn-block'
   .grid.footer-white#footer
     .container-fluid
       .row.align-items-center.text-of-footer

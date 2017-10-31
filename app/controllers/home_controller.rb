@@ -38,6 +38,11 @@ class HomeController < ApplicationController
     render :show_form
   end
 
+  def get_contact
+    @contact = Contact.new
+    @navigation = Navigation.order(weight: :asc).all
+  end
+
   def contact
     puts 'contact'
     ContactMailer.contact_email(contact_params).deliver_now
@@ -57,6 +62,8 @@ class HomeController < ApplicationController
   def resolve_layout
     case action_name
       when 'landing'
+        'landing'
+      when 'get_contact'
         'landing'
       when 'forms'
         'forms'
