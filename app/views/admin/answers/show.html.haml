@@ -27,6 +27,7 @@
         %tr
           - item.surveys.each do |th|
             %th #{th[0]}
+          %th Fecha
           %th Acción
       %tbody
         %tr
@@ -38,6 +39,8 @@
                 %img{src: td[1], "style": "max-width: 250px"}
               - else
                 #{td[1]}
+          %td #{item.created_at.strftime("%d/%m/%Y %H:%M")}
           %td
             = link_to('Eliminar', admin_answer_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
+            = link_to('Editar', edit_admin_answer_path(item))
     %hr

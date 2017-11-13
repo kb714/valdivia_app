@@ -1,0 +1,21 @@
+.body-title
+  %h1
+    Respuesta #{@data.survey.name}
+  %small Formulario
+.body-toolbar
+  Acciones:
+  %a.btn.btn-primary{:href => admin_answer_path(@data)} Volver
+.body-content
+  - if flash[:notice]
+    .alert.alert-info.alert-dismissible.fade.show
+      %button.close{data:{dismiss: 'alert'}}
+        %span{aria: {hidden: 'true'}} &times;
+      = flash[:notice]
+  .container
+    = form_tag(admin_answer_path(@data), method: :put) do
+      - @data.surveys.each do |item, value|
+        .form-group
+          = label_tag(item, item)
+          = text_field_tag("survey[#{item}]", value, class: 'form-control')
+        %hr
+      %button.btn.btn-primary{type: :submit} Actualizar
