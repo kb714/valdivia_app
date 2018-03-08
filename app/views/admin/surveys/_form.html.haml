@@ -2,7 +2,7 @@
   .card-block
     = f.error_notification
     = f.input :name
-    = f.input :description
+    = f.input :description, input_html: {id: 'editor', rows: 5}
     %br
     %img{src: f.object.banner.url, width: '250px'}
     = f.input :banner

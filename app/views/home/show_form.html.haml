@@ -4,7 +4,7 @@
   .card-block
     .text-center
       %h3 #{@survey.name}
-      %small #{@survey.description}
+      %small #{@survey.description.html_safe}
       %hr
       %small
         Válido desde:
