@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id               :integer          not null, primary key
+#  background_color :string
+#  content_right    :text
+#  content_left     :text
+#  animation_right  :boolean
+#  animation_left   :boolean
+#  weight           :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  banner           :json
+#  background_image :json
+#  page_type        :string
+#  name             :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

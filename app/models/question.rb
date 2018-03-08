@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id            :integer          not null, primary key
+#  survey_id     :integer
+#  name          :text
+#  description   :text
+#  question_type :string
+#
+
 class Question < ApplicationRecord
   # relations
   belongs_to :survey, optional: true

@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: answers
+#
+#  id          :integer          not null, primary key
+#  question_id :integer
+#  content     :text
+#  value       :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

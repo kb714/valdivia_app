@@ -25,7 +25,7 @@
           - q.answers.each do |a|
             .form-group
               = content_tag(:label) do
-                = radio_button_tag q.name, a.content
+                = radio_button_tag "survey[#{q.name}]", a.content
                 = a.content
         - if q.question_type.to_i == 1
           .form-group

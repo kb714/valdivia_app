@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: hours
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  phone       :string
+#  email       :string
+#  subject     :string
+#  description :text
+#  day         :date
+#  hour        :time
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Hour < ApplicationRecord
 
   # validations
