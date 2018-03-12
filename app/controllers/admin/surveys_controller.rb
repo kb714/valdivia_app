@@ -3,7 +3,7 @@ module Admin
   before_action :set_survey, only: [:edit, :update, :destroy]
 
   def index
-    @survey = Survey.all
+    @survey = Survey.where(deleted_at: nil)
   end
 
   def new
@@ -26,7 +26,6 @@ module Admin
 
   def update
     if @survey.update(survey_params)
-      puts "SON: #{params[:survey][:questions_attributes][:name].to_json}"
       redirect_to edit_admin_survey_path(@survey), notice: 'Formulario actualizado.'
     else
       render :edit
@@ -35,7 +34,7 @@ module Admin
 
   def destroy
     @survey = Survey.find_by(id: params[:id])
-    @survey.destroy
+    @survey.update(deleted_at: Time.now)
     redirect_to admin_surveys_path, notice: 'Acción completada con éxito'
   end
 
