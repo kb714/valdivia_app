@@ -43,19 +43,26 @@ module Admin
       worksheet = workbook.add_worksheet
       # Write a formatted and unformatted string, row and column notation.
       col = row = 0
+      header_flag = false
+      format = workbook.add_format # Add a format
+      format.set_bold
+      format.set_color('blue')
       @data.each do |item|
         # set headers
-        item.surveys.each do |th|
-          worksheet.write(row, col, th[0])
-          col += 1
+        unless header_flag
+          item.surveys.each do |th|
+            worksheet.write(row, col, th[0], format)
+            col += 1
+          end
+          worksheet.write(row, col, "Fecha", format)
+          row += 1
+          col = 0
+          header_flag = true
         end
-        worksheet.write(row, col, "Fecha")
-        row += 1
-        col = 0
         # set body
         item.surveys.each do |td|
           if td[1] =~ URI::regexp
-            worksheet.write(row, col, link_to('Abrir imagen en una nueva página', td[1], target: "_blank"))
+            worksheet.write(row, col, td[1])
           else
             worksheet.write(row, col, td[1])
           end
