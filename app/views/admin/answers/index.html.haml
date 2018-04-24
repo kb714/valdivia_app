@@ -34,3 +34,5 @@
           %td= item.expiration.strftime("%d/%m/%Y %H:%M")
           %td
             = link_to('Ver respuestas', admin_answer_path(item))
+            |
+            = link_to('Exportar', export_document_admin_answers_path(survey_id: item.id), method: :post)

@@ -39,7 +39,11 @@ Rails.application.routes.draw do
     end
     resources :hours
     resources :surveys
-    resources :answers
+    resources :answers do
+      collection do
+        post :export_document
+      end
+    end
     resources :navigations
     resources :images, only: [:create, :destroy]
   end

@@ -93,3 +93,5 @@ gem 'carrierwave', '~> 1.0'
 gem 'summernote-rails'
 
 gem 'mini_magick'
+
+gem 'write_xlsx'
