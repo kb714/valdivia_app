@@ -5,11 +5,10 @@ module Admin
     end
 
     def show
-      @data = DataStore.where(survey_id: params[:id])
+      @data = DataStore.where(survey_id: params[:id]).order(:created_at)
       puts "CANTIDAD: #{@data.count}"
       @all_data = Hash.new("default")
       @data.each do |item|
-        #puts "PUTS: #{@all_data.merge(item.surveys){|key,oldval,newval| [*oldval].to_a + [*newval].to_a }}"
         @all_data = @all_data.merge(item.surveys){|key,oldval,newval| [*oldval].to_a + [*newval].to_a }
       end
       puts @all_data
@@ -34,6 +33,14 @@ module Admin
       survey_id = @data.survey_id
       @data.destroy
       redirect_to admin_answer_path(survey_id), notice: 'Acción completada con éxito'
+    end
+
+    def toggle_approved
+      @data = DataStore.find_by(id: params[:id])
+      @data.update(approved: !@data.approved)
+      respond_to do |format|
+        format.js
+      end
     end
 
     def export_document

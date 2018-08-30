@@ -1,0 +1,7 @@
+<% if @data.approved? %>
+  $("#table-answer-<%= @data.id %>").find('tbody tr').addClass('table-success');
+  $("#table-answer-<%= @data.id %>").find('.toggle-approved').text('Desaprobar');
+<% else %>
+  $("#table-answer-<%= @data.id %>").find('tbody tr').removeClass('table-success');
+$("#table-answer-<%= @data.id %>").find('.toggle-approved').text('Aprobar');
+<% end %>

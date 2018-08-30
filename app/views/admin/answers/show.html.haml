@@ -11,18 +11,8 @@
       %button.close{data:{dismiss: 'alert'}}
         %span{aria: {hidden: 'true'}} &times;
       = flash[:notice]
-  -#%table.table
-  -#  %thead
-  -#    %tr
-  -#      - @all_data.each do |item, key|
-  -#        %th #{item}
-  -#  %tbody
-  -#    - @data.each_with_index do |a, index|
-  -#      %tr
-  -#        - @all_data.each do |item, key|
-  -#          %td #{key[index]}
   - @data.each do |item|
-    %table.table
+    %table.table.table-bordered{id: "table-answer-#{item.id}"}
       %thead
         %tr
           - item.surveys.each do |th|
@@ -30,7 +20,7 @@
           %th Fecha
           %th Acción
       %tbody
-        %tr
+        %tr{ class: item.approved? ? 'table-success' : nil}
           - item.surveys.each do |td|
             %td
               - if is_uri?(td[1])
@@ -43,4 +33,5 @@
           %td
             = link_to('Eliminar', admin_answer_path(item), method: :delete, data: {confirm: '¿Está seguro?'})
             = link_to('Editar', edit_admin_answer_path(item))
+            = link_to(item.approved? ? 'Desaprobar' : 'Aprobar', toggle_approved_admin_answer_path(item), class: 'toggle-approved', method: :post, data: {remote: true})
     %hr

@@ -43,6 +43,9 @@ Rails.application.routes.draw do
       collection do
         post :export_document
       end
+      member do
+        post :toggle_approved
+      end
     end
     resources :navigations
     resources :images, only: [:create, :destroy]

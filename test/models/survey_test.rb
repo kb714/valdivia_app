@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  banner      :string
 #  start_at    :datetime
+#  deleted_at  :datetime
 #
 
 require 'test_helper'
