@@ -35,6 +35,12 @@ module Admin
       redirect_to admin_answer_path(survey_id), notice: 'Acción completada con éxito'
     end
 
+    def destroy_survey
+      @data = Survey.find_by(id: params[:id])
+      @data.destroy
+      redirect_to admin_answers_path, notice: 'Acción completada con éxito'
+    end
+
     def toggle_approved
       @data = DataStore.find_by(id: params[:id])
       @data.update(approved: !@data.approved)

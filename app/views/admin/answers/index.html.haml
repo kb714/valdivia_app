@@ -23,7 +23,7 @@
       - if @surveys.blank?
         %tr
           %td.text-center{colspan: 5}
-            %small No existen horas agendadas o pendientes
+            %small No existen formularios
       - @surveys.each do |item|
         %tr
           %td= item.name
@@ -36,3 +36,5 @@
             = link_to('Ver respuestas', admin_answer_path(item))
             |
             = link_to('Exportar', export_document_admin_answers_path(survey_id: item.id), method: :post)
+            |
+            = link_to('Eliminar', destroy_survey_admin_answer_path(item), method: :post, data: { confirm: 'Con esta acción eliminará todas las respuestas relacionadas' })

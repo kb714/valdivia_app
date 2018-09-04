@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       end
       member do
         post :toggle_approved
+        post :destroy_survey
       end
     end
     resources :navigations
