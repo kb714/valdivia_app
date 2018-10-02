@@ -18,6 +18,7 @@ class Survey < ApplicationRecord
   # relations
   has_many :questions, dependent: :destroy
   has_many :data_stores, dependent: :destroy
+  has_many :survey_files, dependent: :destroy
   accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
 
   # validations
